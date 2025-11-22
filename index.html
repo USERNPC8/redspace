@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REDSPACE</title>
+    <title>REDSPACE | Web Design do Futuro</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -162,7 +162,7 @@
             margin-bottom: 40px;
         }
 
-        /* --- SERVICES --- */
+        /* --- SEÇÕES PADRÃO --- */
         .section {
             padding: 100px 50px;
         }
@@ -184,6 +184,7 @@
             box-shadow: 0 0 10px var(--primary-red);
         }
 
+        /* --- GRID DE SERVIÇOS --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -257,38 +258,39 @@
             letter-spacing: 1px;
         }
 
-        /* --- CONTACT --- */
+        /* --- NOVO ESTILO TELEGRAM --- */
         .contact-container {
             display: flex;
             justify-content: center;
         }
 
-        form {
+        .telegram-contact-box {
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             background: var(--card-bg);
             padding: 40px;
             border: var(--glass-border);
+            backdrop-filter: blur(5px);
+            text-align: center;
+            margin: 0 auto;
         }
 
-        .input-group {
-            margin-bottom: 20px;
+        .telegram-contact-box p {
+            margin-bottom: 25px;
+            color: var(--text-gray);
+            line-height: 1.5;
         }
 
-        input, textarea {
-            width: 100%;
-            padding: 15px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            color: white;
-            font-family: 'Exo 2', sans-serif;
-            outline: none;
-            transition: 0.3s;
+        .telegram-btn {
+            font-size: 1.1rem;
+            padding: 15px 35px; /* Botão maior e mais impactante */
+            display: inline-block; /* Garante que o link se comporte como botão */
         }
 
-        input:focus, textarea:focus {
-            border-color: var(--primary-red);
-            box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
+        .telegram-hint {
+            margin-top: 15px !important;
+            font-size: 0.8rem;
+            color: #555;
         }
 
         /* --- FOOTER --- */
@@ -342,7 +344,7 @@
 
     <section class="hero" id="home">
         <h1>O FUTURO DO<br><span>SEU NEGÓCIO</span></h1>
-        <p>Desenvolvemos Websites De Alta Performance, E-commerces Intergalácticos E Identidades Visuais Que Orbitam A Perfeição.</p>
+        <p>Desenvolvemos websites de alta performance, e-commerces intergalácticos e identidades visuais que orbitam a perfeição.</p>
         <a href="#servicos" class="btn-cta">Iniciar Decolagem</a>
     </section>
 
@@ -351,22 +353,22 @@
         <div class="grid">
             <div class="card">
                 <h3>Websites Institucionais</h3>
-                <p>Sites Rápidos, Responsivos E Otimizados Para CEO. A Vitrine Digital Perfeita Para Sua Empresa Dominar O Mercado.</p>
+                <p>Sites rápidos, responsivos e otimizados para SEO. A vitrine digital perfeita para sua empresa dominar o mercado.</p>
             </div>
             <div class="card">
                 <h3>E-commerce Pro</h3>
-                <p>Lojas Virtuais Com Design Futurista E Sistema De Vendas Robusto. Venda Seus Produtos Na Velocidade Da Luz.</p>
+                <p>Lojas virtuais com design futurista e sistema de vendas robusto. Venda seus produtos na velocidade da luz.</p>
             </div>
             <div class="card">
                 <h3>UI/UX Design</h3>
-                <p>Interfaces Desenhadas Para O Usuário Do Futuro. Experiências Fluídas, Intuitivas E Visualmente Impactantes.</p>
+                <p>Interfaces desenhadas para o usuário do futuro. Experiências fluídas, intuitivas e visualmente impactantes.</p>
             </div>
         </div>
     </section>
 
     <div class="stats">
         <div class="stat-item">
-            <h4>+50</h4>
+            <h4>+150</h4>
             <p>Projetos Lançados</p>
         </div>
         <div class="stat-item">
@@ -382,24 +384,21 @@
     <section class="section" id="contato">
         <h2 class="section-title">Conecte-se Conosco</h2>
         <div class="contact-container">
-            <form>
-                <div class="input-group">
-                    <input type="text" placeholder="Nome Do Comandante" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" placeholder="E-mail De Contato" required>
-                </div>
-                <div class="input-group">
-                    <textarea rows="5" placeholder="Detalhes Da Missão (Seu Projeto)" required></textarea>
-                </div>
-                <button type="submit" class="btn-cta" style="width: 100%;">Enviar</button>
-            </form>
+            <div class="telegram-contact-box">
+                <p>Pronto para iniciar sua missão? Clique no botão abaixo para falar diretamente com nosso especialista e garantir um orçamento rápido e sem complicação via Telegram. Resposta imediata garantida!</p>
+                
+                <a href="https://te.me/Redzinx" target="_blank" class="btn-cta telegram-btn">
+                    Falar no Telegram (@Redzinx)
+                </a>
+                
+                <p class="telegram-hint">Você será redirecionado para o Telegram em uma nova aba.</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <a href="#" class="logo" style="font-size: 1.2rem;">RED<span>SPACE</span></a>
-        <p>© 2025 REDSPACE. Todos Os Direitos Reservados No Multiverso.</p>
+        <p>© 2023 REDSPACE Development. Todos os direitos reservados no multiverso.</p>
     </footer>
 
     <script>
