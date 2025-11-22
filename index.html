@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDSPACE | Web Design do Futuro</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIÁVEIS E RESET --- */
+        :root {
+            --primary-red: #ff003c;
+            --dark-red: #8a0020;
+            --bg-color: #050505;
+            --card-bg: rgba(20, 20, 20, 0.7);
+            --text-color: #ffffff;
+            --text-gray: #a0a0a0;
+            --glass-border: 1px solid rgba(255, 0, 60, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- BACKGROUND ANIMADO (ESTRELAS) --- */
+        #star-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #1a0005 0%, #000000 100%);
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; box-shadow: 0 0 10px white; }
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 0, 60, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-color);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+            text-shadow: 0 0 15px var(--primary-red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
+            text-shadow: 0 0 8px var(--primary-red);
+        }
+
+        .btn-cta {
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+            text-decoration: none;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-red);
+            color: white;
+            box-shadow: 0 0 20px var(--primary-red);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--primary-red);
+            display: block;
+            font-size: 5rem;
+            filter: drop-shadow(0 0 5px var(--primary-red));
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* --- SERVICES --- */
+        .section {
+            padding: 100px 50px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--primary-red);
+            margin: 10px auto 0;
+            box-shadow: 0 0 10px var(--primary-red);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border: var(--glass-border);
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-red);
+            box-shadow: 0 0 30px rgba(255, 0, 60, 0.2);
+        }
+
+        .card h3 {
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* --- PORTFOLIO / STATS --- */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            background: linear-gradient(to right, transparent, rgba(255,0,60,0.1), transparent);
+            padding: 50px 0;
+        }
+
+        .stat-item h4 {
+            font-size: 3rem;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-item p {
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            padding: 40px;
+            border: var(--glass-border);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            color: white;
+            font-family: 'Exo 2', sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid #222;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h1 { font-size: 2.5rem; }
+            .hero h1 span { font-size: 3.5rem; }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="star-container"></div>
+
+    <header>
+        <a href="#" class="logo">RED<span>SPACE</span></a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="#contato" class="btn-cta">Orçamento</a>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>O FUTURO DO<br><span>SEU NEGÓCIO</span></h1>
+        <p>Desenvolvemos websites de alta performance, e-commerces intergalácticos e identidades visuais que orbitam a perfeição.</p>
+        <a href="#servicos" class="btn-cta">Iniciar Decolagem</a>
+    </section>
+
+    <section class="section" id="servicos">
+        <h2 class="section-title">Nossas Missões</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Websites Institucionais</h3>
+                <p>Sites rápidos, responsivos e otimizados para SEO. A vitrine digital perfeita para sua empresa dominar o mercado.</p>
+            </div>
+            <div class="card">
+                <h3>E-commerce Pro</h3>
+                <p>Lojas virtuais com design futurista e sistema de vendas robusto. Venda seus produtos na velocidade da luz.</p>
+            </div>
+            <div class="card">
+                <h3>UI/UX Design</h3>
+                <p>Interfaces desenhadas para o usuário do futuro. Experiências fluídas, intuitivas e visualmente impactantes.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h4>+150</h4>
+            <p>Projetos Lançados</p>
+        </div>
+        <div class="stat-item">
+            <h4>100%</h4>
+            <p>Satisfação</p>
+        </div>
+        <div class="stat-item">
+            <h4>24/7</h4>
+            <p>Suporte Técnico</p>
+        </div>
+    </div>
+
+    <section class="section" id="contato">
+        <h2 class="section-title">Conecte-se Conosco</h2>
+        <div class="contact-container">
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="Nome do Comandante" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="E-mail de Contato" required>
+                </div>
+                <div class="input-group">
+                    <textarea rows="5" placeholder="Detalhes da Missão (Seu Projeto)" required></textarea>
+                </div>
+                <button type="submit" class="btn-cta" style="width: 100%;">Enviar Transmissão</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#" class="logo" style="font-size: 1.2rem;">RED<span>SPACE</span></a>
+        <p>© 2023 REDSPACE Development. Todos os direitos reservados no multiverso.</p>
+    </footer>
+
+    <script>
+        // Script para gerar o fundo estrelado
+        const starContainer = document.getElementById('star-container');
+        const starCount = 100;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Posição aleatória
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            // Tamanho aleatório
+            const size = Math.random() * 2 + 1;
+            
+            // Duração da animação aleatória
+            const duration = Math.random() * 3 + 2;
+
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.animationDuration = `${duration}s`;
+
+            starContainer.appendChild(star);
+        }
+
+        // Efeito de Scroll no Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '15px 50px';
+                header.style.background = 'rgba(5, 5, 5, 0.95)';
+            } else {
+                header.style.padding = '20px 50px';
+                header.style.background = 'rgba(5, 5, 5, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
